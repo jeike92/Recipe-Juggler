@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
+            btnRemoveFavorite = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -43,14 +44,25 @@
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentDoubleClick += dataGridView1_CellContentDoubleClick;
             // 
+            // btnRemoveFavorite
+            // 
+            btnRemoveFavorite.Location = new Point(12, 387);
+            btnRemoveFavorite.Name = "btnRemoveFavorite";
+            btnRemoveFavorite.Size = new Size(193, 29);
+            btnRemoveFavorite.TabIndex = 1;
+            btnRemoveFavorite.Text = "Remove favorite";
+            btnRemoveFavorite.UseVisualStyleBackColor = true;
+            btnRemoveFavorite.Click += btnRemoveFavorite_Click;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnRemoveFavorite);
             Controls.Add(dataGridView1);
             Name = "Form2";
-            Text = "Form2";
+            Text = "Double click your favorite to load instructions";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
@@ -58,5 +70,6 @@
         #endregion
 
         private DataGridView dataGridView1;
+        private Button btnRemoveFavorite;
     }
 }
