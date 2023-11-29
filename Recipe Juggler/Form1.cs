@@ -8,8 +8,6 @@ using System.Windows.Forms;
 
 namespace Recipe_Juggler
 {
-
-
     public partial class Form1 : Form
     {
         private List<Favorite> Favorites = new List<Favorite>();
@@ -20,7 +18,6 @@ namespace Recipe_Juggler
         {
             InitializeComponent();
         }
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -40,8 +37,6 @@ namespace Recipe_Juggler
             lblCategory.Text = History[count].Category;
 
             lblTags.Text = History[count].Tag;
-
-            lLYouTube.Text = History[count].YouTube;
 
             rtbInstructions.Text = History[count].Instruction;
 
@@ -86,15 +81,9 @@ namespace Recipe_Juggler
                 zutatenz.Add(new Ingredient { Ingredients = item.Trim(), Measurments = post.Measurements[i].Trim() });
                 i++;
             }
-
-
-
-
-            //IngMes = concat;
             #endregion
 
             #region History
-
             Favorite newHistory = new Favorite()
             {
                 Id = post.Id,
@@ -110,27 +99,7 @@ namespace Recipe_Juggler
             };
             History.Add(newHistory);
             count = History.Count - 1;
-
-
             #endregion
-
-
-
-
-            //TODO Listboxen in Datagrid umwandeln[nachfragen]
-
-            //TODO Favoritenliste[X]
-
-
-            //TODO Historie (Button zurück + next)
-
-            //TODO Personenskalierungen
-
-            //TODO Unwichtiges Design: Auftauchende Favoriten Markieren, Rating System, Favoriten löschen + eigenständig hinzufügen, Measurment Umrechner + Button kreieren
-
-            //TODO Button ausgrauen, wenn kein Schritt mehr vorhanden ist
-
-            //TODO Gericht nach ID aufrufen
 
 
         }
@@ -139,11 +108,6 @@ namespace Recipe_Juggler
         {
             ReadAndDeserializeApiResponse();
             SetObjects();
-        }
-
-        private void LLYouTube_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start(History[count].YouTube);
         }
 
         private void btnFavorite_Click(object sender, EventArgs e)
@@ -184,6 +148,7 @@ namespace Recipe_Juggler
             }
 
         }
+
         public void SaveData(Favorite newFav)
         {
             string filePath = "favorites.json";
@@ -267,6 +232,11 @@ namespace Recipe_Juggler
             History.Add(f);
             count++;
             SetObjects();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(History[count].YouTube);
         }
     }
 }

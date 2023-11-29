@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             lblName = new Label();
             pbThumb = new PictureBox();
             lblId = new Label();
@@ -38,13 +39,14 @@
             lblTags = new Label();
             rtbInstructions = new RichTextBox();
             rootBindingSource = new BindingSource(components);
-            lLYouTube = new LinkLabel();
             btnFavorite = new Button();
             btnBack = new Button();
             btnNext = new Button();
             btnShowFavorites = new Button();
             fileSystemWatcher1 = new FileSystemWatcher();
             dataGridView1 = new DataGridView();
+            button1 = new Button();
+            lblYouTube = new Label();
             ((System.ComponentModel.ISupportInitialize)pbThumb).BeginInit();
             ((System.ComponentModel.ISupportInitialize)rootBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
@@ -129,17 +131,6 @@
             // 
             rootBindingSource.DataSource = typeof(Root);
             // 
-            // lLYouTube
-            // 
-            lLYouTube.AutoSize = true;
-            lLYouTube.Location = new Point(51, 199);
-            lLYouTube.Name = "lLYouTube";
-            lLYouTube.Size = new Size(66, 20);
-            lLYouTube.TabIndex = 12;
-            lLYouTube.TabStop = true;
-            lLYouTube.Text = "YouTube";
-            lLYouTube.LinkClicked += LLYouTube_LinkClicked;
-            // 
             // btnFavorite
             // 
             btnFavorite.Location = new Point(321, 392);
@@ -195,17 +186,38 @@
             dataGridView1.Size = new Size(319, 348);
             dataGridView1.TabIndex = 19;
             // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.ActiveCaptionText;
+            button1.Image = (Image)resources.GetObject("button1.Image");
+            button1.Location = new Point(51, 221);
+            button1.Name = "button1";
+            button1.Size = new Size(70, 48);
+            button1.TabIndex = 21;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
+            // lblYouTube
+            // 
+            lblYouTube.AutoSize = true;
+            lblYouTube.Location = new Point(51, 198);
+            lblYouTube.Name = "lblYouTube";
+            lblYouTube.Size = new Size(143, 20);
+            lblYouTube.TabIndex = 22;
+            lblYouTube.Text = "YouTube  Instruction";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1534, 787);
+            Controls.Add(lblYouTube);
+            Controls.Add(button1);
             Controls.Add(dataGridView1);
             Controls.Add(btnShowFavorites);
             Controls.Add(btnNext);
             Controls.Add(btnBack);
             Controls.Add(btnFavorite);
-            Controls.Add(lLYouTube);
             Controls.Add(rtbInstructions);
             Controls.Add(lblTags);
             Controls.Add(lblCategory);
@@ -236,12 +248,13 @@
         private Label lblTags;
         private RichTextBox rtbInstructions;
         private BindingSource rootBindingSource;
-        private LinkLabel lLYouTube;
         private Button btnFavorite;
         private Button btnBack;
         private Button btnNext;
         private Button btnShowFavorites;
         private FileSystemWatcher fileSystemWatcher1;
         private DataGridView dataGridView1;
+        private Button button1;
+        private Label lblYouTube;
     }
 }
