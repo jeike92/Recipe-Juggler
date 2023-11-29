@@ -21,20 +21,25 @@ namespace Recipe_Juggler
 
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
             if (e.RowIndex >= 0 && e.RowIndex < dataGridView1.Rows.Count)
             {
                 Favorite selectedFavorite = dataGridView1.Rows[e.RowIndex].DataBoundItem as Favorite;
 
                 Form1 form1Instance = Application.OpenForms.OfType<Form1>().FirstOrDefault();
 
-                    if (form1Instance != null)
-                    {
-                        form1Instance.UpdateFavDataFromForm2(selectedFavorite);
-                    }
+                if (form1Instance != null)
+                {
+                    form1Instance.UpdateFavDataFromForm2(selectedFavorite);
+                }
 
                 this.Close();
             }
+        }
+
+        private void btnRemoveFavorite_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
