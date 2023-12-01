@@ -8,8 +8,6 @@ namespace Recipe_Juggler
     {
         [JsonPropertyName("meals")]
         public Dictionary<string, string>[] Meals { get; set; }
-        
-
         public string Id => Meals[0]["idMeal"];
         public string Name => Meals[0]["strMeal"];
         public string DrinkAlternate => Meals[0]["strDrinkAlternate"];
@@ -19,6 +17,7 @@ namespace Recipe_Juggler
         public string MealThumb => Meals[0]["strMealThumb"];
         public string Tags => Meals[0]["strTags"];
         public string YoutubeLink => Meals[0]["strYoutube"];
+
         #region Ingredients 1-20
         public List<string> Ingredients 
         { 
@@ -97,13 +96,10 @@ namespace Recipe_Juggler
         public string Measure19 => Meals[0]["strMeasure19"];
         public string Measure20 => Meals[0]["strMeasure20"];
         #endregion
-
         
         public string Source => Meals[0]["strSource"];
         public string ImageSource => Meals[0]["strImageSource"];
         public string CreativeCommonsConfirmed => Meals[0]["strCreativeCommonsConfirmed"];
         public string DateModified => Meals[0]["dateModified"];
-
-
     }
 }

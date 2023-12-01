@@ -59,12 +59,14 @@ namespace Recipe_Juggler.Properties {
                 resourceCulture = value;
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap playbutton {
-            get {
+        internal static System.Drawing.Bitmap playbutton
+        {
+            get
+            {
                 object obj = ResourceManager.GetObject("playbutton", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }

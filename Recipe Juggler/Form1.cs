@@ -95,6 +95,7 @@ namespace Recipe_Juggler
             count++;
             SetObjects();
         }
+
         /// <summary>
         ///  Sets the created objects to the desired value.
         /// </summary>
@@ -145,7 +146,6 @@ namespace Recipe_Juggler
 
             Root? post = JsonSerializer.Deserialize<Root>(responseBody);
 
-
             #region Konkatenierte Listen
             int i = 0;
 
@@ -178,6 +178,7 @@ namespace Recipe_Juggler
 
 
         }
+
         /// <summary>
         ///  Adds the object in history to favorites and proofs if its already a favorite.
         /// </summary>
@@ -214,6 +215,7 @@ namespace Recipe_Juggler
             }
 
         }
+
         /// <summary>
         ///  Deserializing existing data, adding the new data to serialize into a JSON.
         /// </summary>
@@ -234,6 +236,7 @@ namespace Recipe_Juggler
             File.WriteAllText("favorites.json", json);
 
         }
+
         /// <summary>
         ///  Creating a JSON if non-existent or loading the JSON to work with.
         /// </summary>
@@ -253,6 +256,7 @@ namespace Recipe_Juggler
                 MessageBox.Show("Error loading data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         #endregion
     }
 }

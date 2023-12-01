@@ -39,7 +39,14 @@ namespace Recipe_Juggler
 
         private void btnRemoveFavorite_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                // Get the selected row
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
+                // Remove the selected row from the data source
+                
+            }
         }
     }
 }
