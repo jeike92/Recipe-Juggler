@@ -41,10 +41,24 @@ namespace Recipe_Juggler
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                // Get the selected row
+
                 DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
-                // Remove the selected row from the data source
+                Favorite selectedFavorite = selectedRow.DataBoundItem as Favorite;
+
+
+                List<Favorite> favList = dataGridView1.DataSource as List<Favorite>;
+                if (favList != null)
+                {
+                    favList.Remove(selectedFavorite);
+
+
+                    dataGridView1.DataSource = null;
+                    dataGridView1.DataSource = favList;
+
+
+                }
+
                 
             }
         }
