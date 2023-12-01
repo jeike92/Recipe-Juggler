@@ -1,3 +1,4 @@
+﻿using System;
 using System.Diagnostics;
 using System.Net;
 using System.Security.Policy;
@@ -6,10 +7,13 @@ using System.Text.Json.Serialization;
 using System.Windows.Forms;
 
 
+
 namespace Recipe_Juggler
 {
     public partial class Form1 : Form
     {
+        //༼ つ ◕_◕ ༽つ Recipe Juggler by Jonas Eikenberg v1.0 ༼ つ ◕_◕ ༽つ
+        #region Properties
         private List<Favorite> Favorites = new List<Favorite>();
 
         private List<Favorite> History = new List<Favorite>();
@@ -18,14 +22,82 @@ namespace Recipe_Juggler
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Events
         private void Form1_Load(object sender, EventArgs e)
         {
             ReadAndDeserializeApiResponse();
             SetObjects();
             LoadData();
         }
+        private void BtnLucky_Click(object sender, EventArgs e)
+        {
+            ReadAndDeserializeApiResponse();
+            SetObjects();
+        }
+        private void btnFavorite_Click(object sender, EventArgs e)
+        {
+            AddFavorite(History[count]);
+        }
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //SaveData();
+        }
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            count++;
+            if (count > History.Count - 1)
+            {
+                MessageBox.Show("Bitte den Lucky button benutzen!");
+                count--;
+            }
+            else
+            {
+                SetObjects();
+            }
+        }
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            --count;
+            if (count < 0)
+            {
+                MessageBox.Show("Davor gibt es nichts!");
+                count++;
+            }
+            else
+            {
+                SetObjects();
+            }
 
+        }
+        private void btnShowFavorites_Click(object sender, EventArgs e)
+        {
+            LoadData();
+            Form2 fav = new Form2(Favorites);
+            fav.Show();
+
+
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Process.Start(new ProcessStartInfo { FileName = History[count].YouTube, UseShellExecute = true });
+        }
+        #endregion
+
+        #region Methods
+        /// <summary>
+        ///  Getting Data from Form2 to show and work with.
+        /// </summary>
+        public void UpdateFavDataFromForm2(Favorite f)
+        {
+            History.Add(f);
+            count++;
+            SetObjects();
+        }
+        /// <summary>
+        ///  Sets the created objects to the desired value.
+        /// </summary>
         private void SetObjects()
         {
             lblName.Text = History[count].Name;
@@ -59,6 +131,9 @@ namespace Recipe_Juggler
             }
             #endregion
         }
+        /// <summary>
+        ///  Reads and deserialize the API, concat the deserialized List into a workable state and creates an entry for a history.
+        /// </summary>
         public void ReadAndDeserializeApiResponse()
         {
             HttpClient client = new();
@@ -103,18 +178,9 @@ namespace Recipe_Juggler
 
 
         }
-
-        private void BtnLucky_Click(object sender, EventArgs e)
-        {
-            ReadAndDeserializeApiResponse();
-            SetObjects();
-        }
-
-        private void btnFavorite_Click(object sender, EventArgs e)
-        {
-            AddFavorite(History[count]);
-        }
-
+        /// <summary>
+        ///  Adds the object in history to favorites and proofs if its already a favorite.
+        /// </summary>
         public void AddFavorite(Favorite history)
         {
             Favorite newFav = new Favorite
@@ -148,7 +214,9 @@ namespace Recipe_Juggler
             }
 
         }
-
+        /// <summary>
+        ///  Deserializing existing data, adding the new data to serialize into a JSON.
+        /// </summary>
         public void SaveData(Favorite newFav)
         {
             string filePath = "favorites.json";
@@ -166,7 +234,9 @@ namespace Recipe_Juggler
             File.WriteAllText("favorites.json", json);
 
         }
-
+        /// <summary>
+        ///  Creating a JSON if non-existent or loading the JSON to work with.
+        /// </summary>
         public void LoadData()
         {
             try
@@ -183,60 +253,6 @@ namespace Recipe_Juggler
                 MessageBox.Show("Error loading data: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            //SaveData();
-        }
-
-        private void btnNext_Click(object sender, EventArgs e)
-        {
-            count++;
-            if (count > History.Count - 1)
-            {
-                MessageBox.Show("Bitte den Lucky button benutzen!");
-                count--;
-            }
-            else
-            {
-                SetObjects();
-            }
-        }
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            --count;
-            if (count < 0)
-            {
-                MessageBox.Show("Davor gibt es nichts!");
-                count++;
-            }
-            else
-            {
-                SetObjects();
-            }
-
-        }
-
-        private void btnShowFavorites_Click(object sender, EventArgs e)
-        {
-            LoadData();
-            Form2 fav = new Form2(Favorites);
-            fav.Show();
-
-
-        }
-
-        public void UpdateFavDataFromForm2(Favorite f)
-        {
-            History.Add(f);
-            count++;
-            SetObjects();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            System.Diagnostics.Process.Start(History[count].YouTube);
-        }
+        #endregion
     }
 }
