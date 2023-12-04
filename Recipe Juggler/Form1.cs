@@ -30,11 +30,16 @@ namespace Recipe_Juggler
             ReadAndDeserializeApiResponse();
             SetObjects();
             LoadData();
+            btnBack.Enabled = false;
+            btnNext.Enabled = false;
+            
         }
         private void BtnLucky_Click(object sender, EventArgs e)
         {
             ReadAndDeserializeApiResponse();
             SetObjects();
+            btnBack.Enabled = true;
+            
         }
         private void btnFavorite_Click(object sender, EventArgs e)
         {
@@ -49,26 +54,36 @@ namespace Recipe_Juggler
             count++;
             if (count > History.Count - 1)
             {
-                MessageBox.Show("Bitte den Lucky button benutzen!");
+                btnNext.Enabled = false;
+                //MessageBox.Show("Use the lucky button to get something new!");
                 count--;
             }
             else
             {
                 SetObjects();
+                btnBack.Enabled = true;
             }
+            
         }
         private void btnBack_Click(object sender, EventArgs e)
         {
             --count;
             if (count < 0)
             {
-                MessageBox.Show("Davor gibt es nichts!");
+                btnBack.Enabled = false;
+                //MessageBox.Show("Nothing to see here");
                 count++;
+
+
+                btnBack.Enabled = false;
             }
             else
             {
                 SetObjects();
+                btnNext.Enabled = true;
             }
+            
+            
 
         }
         private void btnShowFavorites_Click(object sender, EventArgs e)
@@ -105,7 +120,7 @@ namespace Recipe_Juggler
 
             lblArea.Text = History[count].Area;
 
-            lblId.Text = History[count].Id;
+            //lblId.Text = History[count].Id;
 
             lblCategory.Text = History[count].Category;
 

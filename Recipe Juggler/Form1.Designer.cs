@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             lblName = new Label();
             pbThumb = new PictureBox();
-            lblId = new Label();
             lblArea = new Label();
             btnLucky = new Button();
             lblCategory = new Label();
@@ -57,7 +56,7 @@
             // 
             lblName.AutoSize = true;
             lblName.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            lblName.Location = new Point(51, 42);
+            lblName.Location = new Point(51, 23);
             lblName.Name = "lblName";
             lblName.Size = new Size(130, 31);
             lblName.TabIndex = 1;
@@ -71,15 +70,6 @@
             pbThumb.SizeMode = PictureBoxSizeMode.StretchImage;
             pbThumb.TabIndex = 2;
             pbThumb.TabStop = false;
-            // 
-            // lblId
-            // 
-            lblId.AutoSize = true;
-            lblId.Location = new Point(707, 19);
-            lblId.Name = "lblId";
-            lblId.Size = new Size(24, 20);
-            lblId.TabIndex = 3;
-            lblId.Text = "ID";
             // 
             // lblArea
             // 
@@ -133,7 +123,7 @@
             // 
             // btnFavorite
             // 
-            btnFavorite.Location = new Point(321, 392);
+            btnFavorite.Location = new Point(321, 393);
             btnFavorite.Name = "btnFavorite";
             btnFavorite.Size = new Size(148, 29);
             btnFavorite.TabIndex = 13;
@@ -163,9 +153,9 @@
             // 
             // btnShowFavorites
             // 
-            btnShowFavorites.Location = new Point(494, 393);
+            btnShowFavorites.Location = new Point(527, 393);
             btnShowFavorites.Name = "btnShowFavorites";
-            btnShowFavorites.Size = new Size(182, 29);
+            btnShowFavorites.Size = new Size(149, 29);
             btnShowFavorites.TabIndex = 18;
             btnShowFavorites.Text = "Show favorites";
             btnShowFavorites.UseVisualStyleBackColor = true;
@@ -179,11 +169,11 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(357, 42);
+            dataGridView1.Location = new Point(321, 78);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(319, 348);
+            dataGridView1.Size = new Size(355, 308);
             dataGridView1.TabIndex = 19;
             // 
             // button1
@@ -223,7 +213,6 @@
             Controls.Add(lblCategory);
             Controls.Add(btnLucky);
             Controls.Add(lblArea);
-            Controls.Add(lblId);
             Controls.Add(pbThumb);
             Controls.Add(lblName);
             Name = "Form1";
@@ -241,7 +230,6 @@
         #endregion
         private Label lblName;
         private PictureBox pbThumb;
-        private Label lblId;
         private Label lblArea;
         private Button btnLucky;
         private Label lblCategory;
