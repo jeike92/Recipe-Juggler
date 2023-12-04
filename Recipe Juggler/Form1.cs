@@ -32,14 +32,14 @@ namespace Recipe_Juggler
             LoadData();
             btnBack.Enabled = false;
             btnNext.Enabled = false;
-            
+
         }
         private void BtnLucky_Click(object sender, EventArgs e)
         {
             ReadAndDeserializeApiResponse();
             SetObjects();
             btnBack.Enabled = true;
-            
+
         }
         private void btnFavorite_Click(object sender, EventArgs e)
         {
@@ -63,7 +63,7 @@ namespace Recipe_Juggler
                 SetObjects();
                 btnBack.Enabled = true;
             }
-            
+
         }
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -82,8 +82,8 @@ namespace Recipe_Juggler
                 SetObjects();
                 btnNext.Enabled = true;
             }
-            
-            
+
+
 
         }
         private void btnShowFavorites_Click(object sender, EventArgs e)

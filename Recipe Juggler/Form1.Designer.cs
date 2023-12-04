@@ -168,6 +168,9 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.BackgroundColor = SystemColors.GradientInactiveCaption;
+            dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(321, 78);
             dataGridView1.Name = "dataGridView1";
@@ -180,7 +183,7 @@
             // 
             button1.BackColor = SystemColors.ActiveCaptionText;
             button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.Location = new Point(51, 221);
+            button1.Location = new Point(51, 234);
             button1.Name = "button1";
             button1.Size = new Size(70, 48);
             button1.TabIndex = 21;
@@ -200,6 +203,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.GradientInactiveCaption;
             ClientSize = new Size(1534, 787);
             Controls.Add(lblYouTube);
             Controls.Add(button1);
